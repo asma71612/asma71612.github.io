@@ -1,0 +1,568 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #1a1a1a; /* Dark background color */
+  color: #fff; /* Text color */
+}
+
+.main-container {
+  display: flex;
+  width: 100%;
+  /* overflow: auto; */
+  height: 100%;
+  background-color: #1d1b30; /* Dark background color */
+  color: #fff; /* Text color */
+  /* align-items: flex-start; */
+  justify-content: left;
+  min-height: 100vh;
+}
+
+.main-container h1 {
+  color: #f056c7; /* Text color */
+}
+
+.intro-container {
+  /* flex: 1; */
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  padding: 0px;
+  text-align: center;
+}
+
+.headshot {
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+  display: block; /* Center the image within its container */
+  margin: 0 auto; /* Center the image horizontally */
+}
+
+.logo-container {
+  text-align: center;
+  padding: 10px;
+  position: fixed; /* Fix the position of the logo container */
+  z-index: 1; /* Ensure the logo container is above other elements */
+}
+
+#toggle-btn {
+  font-size: 20px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.sidebar {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  height: auto;
+  overflow-x: hidden;
+  background-color: #06050a;
+  transition: 0.5s;
+  /* margin-top: 30px; Adjust the top margin to make room for the logo container */
+}
+
+.sidebar-list {
+  width: 100%;
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+  text-align: center;
+  list-style: none;
+  margin-top: 10px;
+}
+
+.sidebar li:first-child {
+  padding-top: 50px; /* Add padding to the top only for the first li element (Home) */
+}
+
+a {
+  text-decoration: none;
+  color: #fff; /* Link color */
+}
+
+a:hover {
+  background-color: #555; /* Hover color */
+}
+
+.bio {
+  max-width: 550px;
+  line-height: 1.5;
+  margin: 0 auto;
+  margin-top: 16px;
+}
+
+.intro-container p {
+  margin-bottom: 10px; /* Adjust this value so that the gap looks equal */
+}
+
+/* Add styles for the social media links */
+.social-links {
+  display: flex;
+  justify-content: center; /* Center the icons horizontally */
+  gap: 20px; /* Adjust the space between icons */
+  margin-top: 20px; /* Add some space above the icons */
+}
+
+.social-links a {
+  color: #fff; /* Set the icon color */
+  font-size: 24px; /* Adjust icon size as needed */
+}
+
+.social-links a:hover {
+  color: #0a66c2; /* Change color on hover, example for LinkedIn blue */
+}
+
+/* Add these styles to your existing styles.css file */
+
+.cv-section {
+  display: flex;
+  flex: 0 0 auto;
+  width: 50%;
+}
+
+.cv-column1 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* padding: 20px; */
+  /* padding-top: 20px;
+  padding-right: 50px; */
+  /* padding-left: 150px; */
+  width: 50%;
+  text-align: left; /* Add this line for left alignment */
+  align-items: top; /* Center vertically */
+}
+
+.cv-column2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* padding: 20px; */
+  /* padding-top: 20px; */
+  /* padding-right: 150px; */
+  /* padding-left: 0px; */
+  width: 50%;
+  text-align: left; /* Add this line for left alignment */
+  align-items: top; /* Center vertically */
+}
+
+.cv-heading h2 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px;
+  color: #f056c7;
+}
+
+.cv-content h3 {
+  color: #7d79e4;
+}
+
+.line {
+  height: 100%;
+  width: 2px;
+  background-color: #fff;
+  margin-right: 10px; /* Add this line to space the line from the circle */
+}
+
+.circle {
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.cv-content {
+  text-align: left; /* Add this line for left alignment */
+}
+
+.cv-heading {
+  margin-bottom: 0px;
+}
+
+/* .cv-content h3 {
+  margin: 20px;
+} */
+
+.cv-content p,
+.cv-content ul,
+.cv-content li {
+  margin: 0; /* Remove default margins for better alignment */
+}
+
+.resume-container {
+  /* flex: 1; */
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space_around; */
+  width: 100%;
+  text-align: left;
+  padding: 20px;
+  /* padding-top: 75px; */
+  margin-left: 20px; /* Adjusted left margin */
+  align-items: center; /* Center vertically */
+  justify-content: center;
+  margin: 0;
+}
+
+.cv-column-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: top;
+  gap: 40px;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.projects-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  /* grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr); */
+  flex-wrap: wrap;
+  height: 100vh; /* Use viewport height for full screen height */
+  width: 100%;
+  gap: 40px;
+  padding-right: 5%;
+  padding-left: 5%;
+}
+
+.project-column {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.project-square {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 300px; /* Adjust the width as needed */
+  height: 350px; /* Adjust the height as needed */
+  border-top: 0.5px solid #3a495c;
+  border-left: 0.5px solid #3a495c;
+  border-bottom: 2px solid #fff;
+  border-right: 0.5px solid #fff;
+  background-color: #120239; /* Background color of the square */
+}
+
+.project-blue-square {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #211f30;
+  border-right: 0px;
+  border-bottom: 3px solid #3a495c;
+}
+
+p {
+  display: flex;
+}
+
+.project-blue-square p {
+  padding-left: 12px;
+  color: #ee51c0;
+  font-weight: bold;
+}
+
+.project-link-button {
+  position: absolute;
+  bottom: 15px; /* Adjusted above the bottom */
+  width: 50%;
+  height: 35px;
+  border-bottom: 2px solid #fff;
+  border-right: 3px solid #18c93e;
+  border-top: 2px solid #3a495c;
+  border-left: 2px solid #3a495c;
+  background-color: #29273a;
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  color: #fff; /* Black text color */
+  text-decoration: none; /* Remove underline for links */
+}
+
+.project-x-button {
+  position: absolute;
+  top: 9px; /* Center vertically */
+  right: 6px; /* Align to the right */
+  width: 23px;
+  height: 23px;
+  border: 2px solid #ee51c0; /* White border */
+  background-color: #120239;
+}
+
+.project-x-button p {
+  margin: 0;
+  font-size: 20px;
+  color: #ee51c0;
+  position: absolute;
+  top: -2.75px; /* Adjust top padding/margin as needed */
+  right: 3px; 
+}
+
+.project-image {
+  height: 40%;
+  /* width: 50%; */
+}
+
+.blog-post-container {
+  margin: 100px;
+  position: relative;
+  width: 100%;
+}
+
+.blog-post-title p {
+  font-size: 20px;
+}
+
+.browser-container {
+  position: relative;
+  top: 0px;
+  width: 100%;
+  height: auto;
+  min-height: 750px;
+  background-color: #100d23; /* Background color of the square */
+  /* border: 2px solid #3a495c; */
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.browser-background {
+  position: absolute;
+  flex-wrap: wrap;
+  display: flex;
+  top: 40px;
+  width: 100%;
+  height: calc(100% - 40px); /* Subtract the top offset */
+  min-height: 750px;
+  background-color: #120239; /* Background color of the square */
+  /* border: 2px solid #3a495c; */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.browser-tab {
+  border-right: 3px solid #3a495c !important; /* White border */
+  position: relative;
+  background-color: #211f30; /* Default background color */
+  white-space: nowrap; /* Ensures the text will stay on a single line */
+  overflow: hidden; /* Keeps the text contained within the box */
+  text-overflow: ellipsis !important; 
+  display: block;
+}
+
+#browser-tab1 {
+  position: absolute;
+  flex-wrap: wrap;
+  display: flex;
+  top: 5px;
+  left: 12px;
+  width: 15%;
+  height: 35px;
+  background-color: #120239; /* Background color of the square */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#browser-tab2 {
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  flex-wrap: wrap;
+  display: flex;
+  top: 5px;
+  left: calc(15% + 12px + 3px);
+  width: 15%;
+  height: 35px;
+  background-color: #211f30; /* Background color of the square */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#browser-tab3 {
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  flex-wrap: wrap;
+  display: flex;
+  top: 5px;
+  left: calc(15% + 12px + 15% + 3px + 3px);
+  width: 15%;
+  height: 35px;
+  background-color: #211f30; /* Background color of the square */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#browser-tab1,
+#browser-tab2,
+#browser-tab3 {
+  cursor: pointer;
+  border: none;
+}
+
+.tab-text {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 15px;
+  color: #eb0b44;
+  display: block;
+  width: 75%; /* Takes up the full width of the parent container */
+  white-space: nowrap; /* Keeps the text on a single line */
+  overflow: hidden; /* Hides the overflowing text */
+  text-overflow: ellipsis !important; /* Adds the ... when the text overflows */
+  min-width: 0; /* This line is new */
+}
+
+.X-button {
+  display: flex;
+  justify-content: flex-end; /* Right-align horizontally */
+  align-items: center; /* Center vertically */
+  position: absolute;
+  top: 5.5px;
+  right: 0;
+  height: 100%;
+  padding-right: 10px; /* Adjust padding as needed */
+}
+
+.X-button p1 {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  color: #eb0b44;
+  text-align: right;
+  margin: 0;
+}
+
+.browser-top-bar {
+  position: absolute;
+  flex-wrap: wrap;
+  display: flex;
+  top: 40px;
+  width: 100%;
+  height: 35px;
+  background-color: #120239; /* Background color of the square */
+}
+
+.browser-left-arrow {
+  position: absolute;
+  flex-wrap: wrap;
+  display: flex;
+  top: 0;
+  width: 35px;
+  height: 35px;
+  background-color: #120239; /* Background color of the square */
+}
+
+.browser-left-arrow p {
+  font-size: 35px;
+  margin-top: 0px;
+  margin-left: 15px;
+  color: #04e07c;
+}
+
+.browser-right-arrow {
+  position: absolute;
+  flex-wrap: wrap;
+  display: flex;
+  top: 0;
+  margin-left: 45px;
+  width: 35px;
+  height: 35px;
+  background-color: #120239; /* Background color of the square */
+}
+
+.browser-right-arrow p {
+  font-size: 35px;
+  margin-top: 0px;
+  margin-left: 7px;
+  color: #04e07c;
+}
+
+.browser-refresher {
+  position: absolute;
+  flex-wrap: wrap;
+  display: flex;
+  top: 0;
+  margin-left: 80px;
+  width: 35px;
+  height: 35px;
+  background-color: #120239; /* Background color of the square */
+}
+
+.browser-refresher p {
+  font-size: 20px;
+  margin-top: 12.5px;
+  margin-left: 12px;
+  color: #04e07c;
+}
+
+.browser-home {
+  position: absolute;
+  flex-wrap: wrap;
+  display: flex;
+  top: 0;
+  margin-left: 110px;
+  width: 35px;
+  height: 35px;
+  background-color: #120239; /* Background color of the square */
+}
+
+.browser-home p {
+  font-size: 25px;
+  margin-top: 8px;
+  margin-left: 12px;
+  color: #04e07c;
+}
+
+.browser-search-bar {
+  position: absolute;
+  flex-wrap: wrap;
+  display: flex;
+  top: 10px;
+  margin-left: 155px;
+  width: calc(100% - 175px);
+  height: 25px;
+  background-color: #29273a; /* Background color of the square */
+  border-radius: 10px;
+}
+
+.browser-tab1-content,
+.browser-tab2-content,
+.browser-tab3-content {
+  position: relative; /* Keeps the text inside the container */
+  margin-top: 75px; /* Adjust as needed to position below the search bar */
+  margin-right: 30px;
+  margin-left: 30px;
+  overflow: auto; /* Adds scrollbar if content exceeds container height */
+}
+
+.browser-tab1-content-text p,
+.browser-tab2-content-text p,
+.browser-tab3-content-text p {
+  margin: 25px;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Homepage</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+
+  <div class="main-container">
+    <div class="sidebar">
+      <div class="logo-container">
+        <button id="toggle-btn" onclick="toggleSidebar()">☰</button>
+    </div>
+    <div class="sidebar">
+      <li><a href="#" onclick="showPage('home')">Home</a></li>
+      <li><a href="#" onclick="showPage('cv')">CV</a></li>
+      <li><a href="#" onclick="showPage('projects')">Projects</a></li>
+      <li><a href="#" onclick="showPage('experiences')">Experiences</a></li>
+    </div>
+  </div>
+    
+  <div class="intro-container">
+    <img src="/images/headshot.jpg" class="headshot">
+    <h1>Asma Ansari</h1>
+    <p>University of Waterloo</p>
+    <p><span style="color: #2596be; font-weight: bold; font-size: 18px;">Biomedical Engineering</span></p>
+    <p class="bio">With a passion for seamlessly integrating biology and technology, I contribute to cutting-edge projects that drive meaningful innovation. Let's connect and explore the intersection of health and technology together!🌐</p>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/asmaansari716/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/asma71612" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="mailto:asma71612@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
