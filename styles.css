@@ -1,3 +1,10 @@
+@media screen and (max-width: 600px) {
+  .sidebar,
+  .sidebar-list {
+    width: 100vw; /* Set the width to 100% of the viewport width */
+  }
+}
+
 body, html {
   margin: 0;
   padding: 0;

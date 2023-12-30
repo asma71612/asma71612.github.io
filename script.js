@@ -50,18 +50,25 @@ function showPage(page) {
 
 function toggleSidebar() {
   var sidebar = document.querySelector('.sidebar');
-  // var introContainer = document.querySelector('.intro-container');
   var logoButton = document.getElementById('toggle-btn');
 
-  if (sidebar.style.width === '200px') {
-    logoButton.innerHTML = '☰';
-    sidebar.style.width = '0';
-    // introContainer.style.marginLeft = '0';
-  } 
-  else {
-    logoButton.innerHTML = '✖';
-    sidebar.style.width = '200px';
-    // introContainer.style.marginLeft = '0';
+  if (window.innerWidth <= 600) { // Check if the screen width is 600px or less
+    if (sidebar.style.width === '100%') { // If the sidebar is already full width
+      logoButton.innerHTML = '☰';
+      sidebar.style.width = '0'; // Hide the sidebar
+    } else {
+      sidebar.style.width = '100%';
+      logoButton.innerHTML = '✖';
+      sidebar.style.width = '100%'; // Make the sidebar full width
+    }
+  } else { // If the screen width is more than 600px
+    if (sidebar.style.width === '200px') {
+      logoButton.innerHTML = '☰';
+      sidebar.style.width = '0';
+    } else {
+      logoButton.innerHTML = '✖';
+      sidebar.style.width = '200px';
+    }
   }
 }
 
