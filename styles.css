@@ -1,9 +1,76 @@
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 601px) {
   .sidebar,
+  .sidebar.open {
+    width: max-content; /* Make the sidebar as wide as its widest element */
+  }
   .sidebar-list {
-    width: 100vw; /* Set the width to 100% of the viewport width */
+    padding-left: 50px;
+    padding-right: 50px;
   }
 }
+
+/* Media query for small screens */
+@media screen and (max-width: 600px) {
+  .sidebar {
+    position: relative; /* Position the sidebar above other content */
+    top: 0;
+    left: 0;
+    width: 0; /* Start off with the sidebar not taking any width */
+    height: 100%; /* Full height */
+    z-index: 100; /* Ensure it's above other content */
+    overflow-y: auto; /* Allow scrolling if the content is too long */
+    transition: width 0.5s;
+  }
+  .sidebar.open {
+    width: 100%; /* Full width when open */
+  }
+  .intro-container {
+    /* flex: 1; */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px !important;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    text-align: center;
+    transition: 0.5s;
+  }
+  .cv-column-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: top;
+    gap: 40px;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 10%;
+  }
+  .projects-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    /* grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr); */
+    flex-wrap: wrap;
+    height: 100%; /* Use viewport height for full screen height */
+    width: 100%;
+    gap: 40px;
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-top: 15% !important;
+  }
+  .timeline {
+    position: relative;
+    max-width: 100%;
+    margin: 20px !important;
+    margin-top: 50px !important;
+    height: 100vh;
+  }
+}
+
+/* @media screen and (max-width: 750px) {
+
+} */
 
 body, html {
   margin: 0;
@@ -42,6 +109,7 @@ body {
   align-items: center; /* Center horizontally */
   padding: 0px;
   text-align: center;
+  transition: 0.5s;
 }
 
 .headshot {
@@ -69,7 +137,7 @@ body {
 
 .sidebar {
   display: flex;
-  width: 100%;
+  width: 0;
   flex-direction: column;
   height: auto;
   overflow-x: hidden;
@@ -79,10 +147,12 @@ body {
 }
 
 .sidebar-list {
-  width: 100%;
+  /* width: max-content; */
   list-style-type: none;
-  padding: 0;
   margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 ul {
@@ -91,6 +161,7 @@ ul {
 }
 
 li {
+  width: fit-content;
   padding: 10px;
   text-align: center;
   list-style: none;
@@ -243,16 +314,17 @@ a:hover {
 
 .projects-container {
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
   /* grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr); */
   flex-wrap: wrap;
-  height: 100vh; /* Use viewport height for full screen height */
+  height: 100%; /* Use viewport height for full screen height */
   width: 100%;
   gap: 40px;
   padding-right: 5%;
   padding-left: 5%;
+  padding-top: 8%;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
 }
 
 .project-column {
@@ -338,238 +410,61 @@ p {
   /* width: 50%; */
 }
 
-.blog-post-container {
-  margin: 100px;
-  position: relative;
-  width: 100%;
-}
-
-.blog-post-title p {
-  font-size: 20px;
-}
-
-.browser-container {
-  position: relative;
-  top: 0px;
-  width: 100%;
-  height: auto;
-  min-height: 750px;
-  background-color: #100d23; /* Background color of the square */
-  /* border: 2px solid #3a495c; */
-  flex-wrap: wrap;
-  display: flex;
-}
-
-.browser-background {
-  position: absolute;
-  flex-wrap: wrap;
-  display: flex;
-  top: 40px;
-  width: 100%;
-  height: calc(100% - 40px); /* Subtract the top offset */
-  min-height: 750px;
-  background-color: #120239; /* Background color of the square */
-  /* border: 2px solid #3a495c; */
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.browser-tab {
-  border-right: 3px solid #3a495c !important; /* White border */
-  position: relative;
-  background-color: #211f30; /* Default background color */
-  white-space: nowrap; /* Ensures the text will stay on a single line */
-  overflow: hidden; /* Keeps the text contained within the box */
-  text-overflow: ellipsis !important; 
+.timeline {
   display: block;
+  position: relative;
+  max-width: 100%;
+  margin: 50px;
+  margin-top: 50px;
+  height: 100vh;
 }
 
-#browser-tab1 {
+.timeline::after { /* line */
+  content: '';
   position: absolute;
-  flex-wrap: wrap;
-  display: flex;
-  top: 5px;
-  left: 12px;
-  width: 15%;
-  height: 35px;
-  background-color: #120239; /* Background color of the square */
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  width: 2px;
+  background-color: #e74eba;
+  top: 0;
+  bottom: 0;
+  left: 30px;
 }
 
-#browser-tab2 {
-  border: none;
-  cursor: pointer;
+.container {
+  padding: 10px 40px 10px 80px;
+  position: relative;
+  background-color: inherit;
+  width: calc(100% - 80px);
+}
+
+.container::before { /* circle */
+  content: '';
   position: absolute;
-  flex-wrap: wrap;
-  display: flex;
-  top: 5px;
-  left: calc(15% + 12px + 3px);
-  width: 15%;
-  height: 35px;
-  background-color: #211f30; /* Background color of the square */
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  width: 15px;
+  height: 15px;
+  left: 30px;
+  background-color: #e74eba; 
+  border: 2px solid #e74eba;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+  transform: translateX(-50%);
 }
 
-#browser-tab3 {
-  border: none;
+.content { /* title */
+  padding: 20px 30px;
+  /* background-color: white; */
+  position: relative;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.content.hidden {
+  display: none;
+}
+
+.clickable {
   cursor: pointer;
-  position: absolute;
-  flex-wrap: wrap;
-  display: flex;
-  top: 5px;
-  left: calc(15% + 12px + 15% + 3px + 3px);
-  width: 15%;
-  height: 35px;
-  background-color: #211f30; /* Background color of the square */
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-#browser-tab1,
-#browser-tab2,
-#browser-tab3 {
-  cursor: pointer;
-  border: none;
-}
-
-.tab-text {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 15px;
-  color: #eb0b44;
+  color: #2491b8;
+  font-weight: bold;
   display: block;
-  width: 75%; /* Takes up the full width of the parent container */
-  white-space: nowrap; /* Keeps the text on a single line */
-  overflow: hidden; /* Hides the overflowing text */
-  text-overflow: ellipsis !important; /* Adds the ... when the text overflows */
-  min-width: 0; /* This line is new */
-}
-
-.X-button {
-  display: flex;
-  justify-content: flex-end; /* Right-align horizontally */
-  align-items: center; /* Center vertically */
-  position: absolute;
-  top: 5.5px;
-  right: 0;
-  height: 100%;
-  padding-right: 10px; /* Adjust padding as needed */
-}
-
-.X-button p1 {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 14px;
-  color: #eb0b44;
-  text-align: right;
-  margin: 0;
-}
-
-.browser-top-bar {
-  position: absolute;
-  flex-wrap: wrap;
-  display: flex;
-  top: 40px;
-  width: 100%;
-  height: 35px;
-  background-color: #120239; /* Background color of the square */
-}
-
-.browser-left-arrow {
-  position: absolute;
-  flex-wrap: wrap;
-  display: flex;
-  top: 0;
-  width: 35px;
-  height: 35px;
-  background-color: #120239; /* Background color of the square */
-}
-
-.browser-left-arrow p {
-  font-size: 35px;
-  margin-top: 0px;
-  margin-left: 15px;
-  color: #04e07c;
-}
-
-.browser-right-arrow {
-  position: absolute;
-  flex-wrap: wrap;
-  display: flex;
-  top: 0;
-  margin-left: 45px;
-  width: 35px;
-  height: 35px;
-  background-color: #120239; /* Background color of the square */
-}
-
-.browser-right-arrow p {
-  font-size: 35px;
-  margin-top: 0px;
-  margin-left: 7px;
-  color: #04e07c;
-}
-
-.browser-refresher {
-  position: absolute;
-  flex-wrap: wrap;
-  display: flex;
-  top: 0;
-  margin-left: 80px;
-  width: 35px;
-  height: 35px;
-  background-color: #120239; /* Background color of the square */
-}
-
-.browser-refresher p {
-  font-size: 20px;
-  margin-top: 12.5px;
-  margin-left: 12px;
-  color: #04e07c;
-}
-
-.browser-home {
-  position: absolute;
-  flex-wrap: wrap;
-  display: flex;
-  top: 0;
-  margin-left: 110px;
-  width: 35px;
-  height: 35px;
-  background-color: #120239; /* Background color of the square */
-}
-
-.browser-home p {
-  font-size: 25px;
-  margin-top: 8px;
-  margin-left: 12px;
-  color: #04e07c;
-}
-
-.browser-search-bar {
-  position: absolute;
-  flex-wrap: wrap;
-  display: flex;
-  top: 10px;
-  margin-left: 155px;
-  width: calc(100% - 175px);
-  height: 25px;
-  background-color: #29273a; /* Background color of the square */
-  border-radius: 10px;
-}
-
-.browser-tab1-content,
-.browser-tab2-content,
-.browser-tab3-content {
-  position: relative; /* Keeps the text inside the container */
-  margin-top: 75px; /* Adjust as needed to position below the search bar */
-  margin-right: 30px;
-  margin-left: 30px;
-  overflow: auto; /* Adds scrollbar if content exceeds container height */
-}
-
-.browser-tab1-content-text p,
-.browser-tab2-content-text p,
-.browser-tab3-content-text p {
-  margin: 25px;
 }

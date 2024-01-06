@@ -19,6 +19,18 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+// JavaScript to handle click and expand/collapse
+document.querySelectorAll('.clickable').forEach(item => {
+  item.addEventListener('click', event => {
+    let content = item.nextElementSibling;
+    if (content.classList.contains('hidden')) {
+      content.classList.remove('hidden');
+    } else {
+      content.classList.add('hidden');
+    }
+  })
+})
+
 function showPage(page) {
   // Define the URLs for each page
   const homeURL = 'index.html';
@@ -51,23 +63,44 @@ function showPage(page) {
 function toggleSidebar() {
   var sidebar = document.querySelector('.sidebar');
   var logoButton = document.getElementById('toggle-btn');
+  var introContainer = document.querySelector('.intro-container');
+  var experiences = document.querySelector('.timeline');
+  var projects = document.querySelector('.projects-container');
+  var cv = document.querySelector('.resume-container');
 
-  if (window.innerWidth <= 600) { // Check if the screen width is 600px or less
-    if (sidebar.style.width === '100%') { // If the sidebar is already full width
-      logoButton.innerHTML = '☰';
-      sidebar.style.width = '0'; // Hide the sidebar
-    } else {
-      sidebar.style.width = '100%';
-      logoButton.innerHTML = '✖';
-      sidebar.style.width = '100%'; // Make the sidebar full width
+  // Toggle the 'open' class on the sidebar
+  sidebar.classList.toggle('open');
+
+  // Change the button icon based on the sidebar state
+  if (sidebar.classList.contains('open')) {
+    logoButton.innerHTML = '✖';
+    if (window.innerWidth <= 600) {
+      if (window.location.href.includes('index')) {
+        introContainer.style.display = 'none';
+      }
+      if (window.location.href.includes('experiences')) {
+        experiences.style.display = 'none';
+      }
+      if (window.location.href.includes('projects')) {
+        projects.style.display = 'none';
+      }
+      if (window.location.href.includes('cv')) {
+        cv.style.display = 'none';
+      }
     }
-  } else { // If the screen width is more than 600px
-    if (sidebar.style.width === '200px') {
-      logoButton.innerHTML = '☰';
-      sidebar.style.width = '0';
-    } else {
-      logoButton.innerHTML = '✖';
-      sidebar.style.width = '200px';
+  } else {
+    logoButton.innerHTML = '☰';
+    if (window.location.href.includes('index')) {
+      introContainer.style.display = 'flex';
+    }
+    if (window.location.href.includes('experiences')) {
+      experiences.style.display = 'block';
+    }
+    if (window.location.href.includes('projects')) {
+      projects.style.display = 'flex';
+    }
+    if (window.location.href.includes('cv')) {
+      cv.style.display = 'flex';
     }
   }
 }
